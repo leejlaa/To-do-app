@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs")%>
+
+<div class="container-sm container-lg pt-3 my-3 bg-light main">
+    <p>To do list</p>
+    <ul class="list-group">
+       
+            <% items.forEach(item => { %>
+              <li>
+                <p>
+                    <form action="/delete" method="post">
+                    <input type="text"  name="task"  value=" <%=item%>"  readonly>
+                    <button type="submit" class="btn btn-dark">done</button>
+                    </form >
+        
+                </p>
+              </li>
+              <% }); %>
+              <form id="addForm" action="/submit" method="post">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+      
+                        <input type="text" id="item" name="task">
+                    </div>
+      
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                    <input type="submit" class="btn btn-dark"
+                            id="submit" value="Submit" >
+                    </div>
+                </div>
+            </form>
+    </ul>
+</div>
+
+
+<%- include("partials/footer.ejs")%>

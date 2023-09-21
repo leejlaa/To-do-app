@@ -1,0 +1,28 @@
+h1{
+    color:red;
+}
+.task{
+   width:350px;
+   padding: 7px;
+   margin-right: 10px;
+   margin-bottom: 10px;
+}
+.main{
+    
+    justify-content: center;
+    align-items: center;
+}
+footer{
+    align-items:end;
+}
+#done{
+    text-decoration: line-through;
+}
+ul{
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+}
+#doneTask{
+    text-decoration: line-through;
+}
