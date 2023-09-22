@@ -8,8 +8,13 @@
               <li>
                 <p>
                     <form action="/delete" method="post">
-                    <input type="text"  name="task"  value=" <%=item.name%>"  readonly>
-                    <button type="submit" class="btn btn-dark">done</button>
+
+                        <div class="item">
+                             <input name="checkbox"  type="checkbox"  value="<%= item._id %>" >
+                             <p id="task-name"><%=item.name%></p>
+                            <button id ="delete" type="submit" class="btn btn-light" value="delete task">x</button>
+                        </div>
+                    
                     </form >
         
                 </p>
@@ -23,8 +28,8 @@
                     </div>
       
                     <div class="col-lg-5 col-md-5 col-sm-5">
-                    <input type="submit" class="btn btn-dark"
-                            id="submit" value="Submit" >
+                    <input type="submit" class="btn btn-light"
+                            id="submit" value="add new task" >
                     </div>
                 </div>
             </form>

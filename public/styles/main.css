@@ -1,23 +1,13 @@
-h1{
-    color:red;
-}
-.task{
-   width:350px;
-   padding: 7px;
-   margin-right: 10px;
-   margin-bottom: 10px;
-}
+
+
 .main{
-    
     justify-content: center;
     align-items: center;
 }
 footer{
     align-items:end;
 }
-#done{
-    text-decoration: line-through;
-}
+
 ul{
     list-style-type: none;
     justify-content: center;
@@ -26,3 +16,26 @@ ul{
 #doneTask{
     text-decoration: line-through;
 }
+
+input:checked+p{
+    text-decoration: line-through;
+}
+
+.item{
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+    background-color: beige;
+    max-width: 350px;
+    min-width: 350px;
+}
+
+#task-name{
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+#delete{
+    justify-content: end !important;
+}
+

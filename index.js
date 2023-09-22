@@ -42,7 +42,7 @@ app.get("/",(req,res)=>{
             }
           };
           
-          // Use the async function to get fruits and print their names
+          // Use the async function to get items and print their names
           getItems()
             .then(items => {
                 if(items.length == 0){
@@ -85,22 +85,17 @@ app.post("/submit",(req,res)=>{
 });
 
 app.post("/delete",(req,res)=>{
-    try {
-        var items3=[]
-    
-        items2.forEach(x => {
-            if(x != req.body.task){
-                items3.push(x);
-            }
-        });
-    
-        console.log(items3);
-    } catch (error) {
-        console.error(error);
-    }
-        res.render("index.ejs",{
-        items: items3
-    });
+   
+    console.log(req.body.checkbox);
+    // Item.deleteOne({ name: req.body.singleEntry })
+    // .then(() => {
+    // console.log("Successfully Deleted");
+    // res.redirect("/");
+    // })
+    // .catch((err) => {
+    // console.log(err);
+    // });
+    res.redirect("/");
 });
 
 app.listen(port, () => {
