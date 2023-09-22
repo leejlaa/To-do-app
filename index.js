@@ -27,11 +27,11 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-var items2= [];
+
 
 app.get("/",(req,res)=>{
 
-    if( items2.length ===0){
+    
         const getItems = async () => {
             try {
               const items3 = await Item.find({});
@@ -48,19 +48,15 @@ app.get("/",(req,res)=>{
                 if(items.length == 0){
                     item1.save();
                     item2.save();
+                    res.redirect("/");
                 }
-                items.forEach( x => {
-                    items2.push(x.name);
+                res.render("index.ejs",{
+                    items: items
                 });
             })
             .catch(error => console.error(error));
     
-            res.redirect("/");
-        }else{
-            res.render("index.ejs",{
-                items: items2
-            });
-        }
+        
         
 });
 
@@ -78,11 +74,14 @@ app.get("/",(req,res)=>{
 
 app.post("/submit",(req,res)=>{
     
-    items2.push(req.body.task);
-
-    res.render("index.ejs",{
-        items: items2
+    const item = new Item({
+        name: req.body.task
     });
+
+    item.save();
+
+    
+    res.redirect("/");
 });
 
 app.post("/delete",(req,res)=>{
